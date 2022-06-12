@@ -1,5 +1,5 @@
 import s from './CurrencyDushbord.module.css';
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import fetchExchangeRate from '../../services/CurrencyApi';
 
 

@@ -2,66 +2,72 @@ import CurrencyDushbord from './components/CurrencyDushbord';
 import './App.css';
 import { Form } from './components/Form/Form';
 import Auth from './components/Auth/Auth';
-import {
+import { firebase } from 'services/firebase';
+import Nav from './components/Nav/Nav';
 
+
+const {
+  auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-} from 'firebase/auth';
-
-import {auth} from './services/firebase'
-
-
-
-
-
+} = firebase;
 
 function App() {
 
-  const onCreateAccount=async(data)=>{
-    const {email, password}=data;
-    try {
-      const {user}=await createUserWithEmailAndPassword(auth, email, password);
-      return {token:user.accessToken, email:user.email}
-        } catch (error) {
+  const onCreateAccount=async({email, password})=>{
+    await createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+          const user=userCredential.user;
+      const token=user.accessToken
+      console.log(token);
+      return user})
+    .catch ((error)=> {
       alert('Something went wrong. Check input data register');
+      console.log(error.code);
       console.log(error.message);
-    }
+    })
   };
 
   const onLoginUser=async(data)=>{
-    const {email, password}=data;
-    try {
-      const {user}=await signInWithEmailAndPassword(auth, email, password);
-      return {token:user.accessToken, email:user.email}
-    } catch (error) {
-      alert('Something went wrong. Check input data login');
-      console.log(error.message);
-    }
+ 
+        await signInWithEmailAndPassword(auth,  data.email, data.password)
+      .then((userCredential)=>{
+        const user=userCredential.user;
+        return user})
+        .catch ((error)=> {
+        alert('Something went wrong. Check input data register');
+        console.log(error.code);
+        console.log(error.message);
+      })
   }
 
   const onLogOutUser=async()=>{
-    try {
-     const{result}= await signOut(auth);
-     console.log(result);
-     return result
-    } catch (error) {
-      
-    }
+ await signOut(auth)
+     .then(()=>{  
+      // const{users}=result
+      console.log(111);
+      // console.log(users);
+      return })
+      .catch ((error)=> {
+      alert('Something went wrong during logOut');
+      console.log(error.message);
+    })
   }
   return (
   <>
-    <div className="App">
-      <header className="App-header">
+    <Nav/>
+    {/* <div className="App"> */}
+      {/* <header className="App-header">
         <p>
           Hello world!
         </p>
-      </header>
+      </header> */}
       <Form/>
       <CurrencyDushbord/>
       <Auth onSaveUserRegister={onCreateAccount} onSaveUserLolgin={onLoginUser} onLogOutUser={onLogOutUser}/>
-
-    </div>
+    
+    {/* </div> */}
     </>
   );
 }

@@ -1,0 +1,39 @@
+[debug] [2022-06-12T12:49:38.024Z] ----------------------------------------------------------------------
+[debug] [2022-06-12T12:49:38.025Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-06-12T12:49:38.026Z] CLI Version:   11.0.1
+[debug] [2022-06-12T12:49:38.026Z] Platform:      win32
+[debug] [2022-06-12T12:49:38.026Z] Node Version:  v16.15.0
+[debug] [2022-06-12T12:49:38.027Z] Time:          Sun Jun 12 2022 15:49:38 GMT+0300 (Москва, стандартное время)
+[debug] [2022-06-12T12:49:38.027Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-12T12:49:38.074Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-12T12:49:38.075Z] > authorizing via signed-in user (elenapat468@gmail.com)
+[debug] [2022-06-12T12:49:38.075Z] [iam] checking project project-firebase-test-52479 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-06-12T12:49:38.077Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-firebase-test-52479:testIamPermissions [none]
+[debug] [2022-06-12T12:49:38.077Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-firebase-test-52479:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-12T12:49:38.395Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-firebase-test-52479:testIamPermissions 200
+[debug] [2022-06-12T12:49:38.395Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-firebase-test-52479:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-12T12:49:38.396Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/project-firebase-test-52479/serviceAccounts/project-firebase-test-52479@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-06-12T12:49:38.396Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/project-firebase-test-52479/serviceAccounts/project-firebase-test-52479@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-06-12T12:49:39.194Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/project-firebase-test-52479/serviceAccounts/project-firebase-test-52479@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-06-12T12:49:39.195Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/project-firebase-test-52479/serviceAccounts/project-firebase-test-52479@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-06-12T12:49:39.195Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/project-firebase-test-52479 [none]
+[debug] [2022-06-12T12:49:39.543Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/project-firebase-test-52479 200
+[debug] [2022-06-12T12:49:39.543Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/project-firebase-test-52479 {"projectId":"project-firebase-test-52479","projectNumber":"711389301120","displayName":"Project-firebase-test","name":"projects/project-firebase-test-52479","resources":{"hostingSite":"project-firebase-test-52479","realtimeDatabaseInstance":"project-firebase-test-52479-default-rtdb","storageBucket":"project-firebase-test-52479.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'project-firebase-test-52479'...
+[info] 
+[info] i  deploying firestore, functions, hosting 
+[debug] [2022-06-12T12:49:39.668Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at new NodeError (node:internal/errors:372:5)
+    at validateString (node:internal/validators:120:11)
+    at Object.join (node:path:429:7)
+    at Config.path (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:122:45)
+    at getChildEnvironment (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:50:49)
+    at runTargetCommands (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:71:14)
+    at C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\lifecycleHooks.js:122:24
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async chain (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:33:9)
+    at async deploy (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:67:5)
+[error] 
+[error] Error: An unexpected error has occurred.

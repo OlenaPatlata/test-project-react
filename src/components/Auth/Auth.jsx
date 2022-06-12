@@ -103,7 +103,7 @@ const Auth = (props) => {
           <TextField
             autoComplete={user.password || 'Password'}
             name='password'
-            variant='outlined'
+                      variant='outlined'
             required
             fullWidth
             id='password'
@@ -129,7 +129,7 @@ const Auth = (props) => {
         </div>
       </div>
     </Container>
-    <Button variant='contained' color="primary" onClick={()=>onLogOutUser}>Logout</Button>
+    <Button variant='contained' color="primary" onClick={()=>onLogOutUser()}>Logout</Button>
         </>
     );
 }
